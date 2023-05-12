@@ -1,5 +1,6 @@
 import { useState, Fragment } from "react";
 import { Link } from "react-router-dom";
+import createUser from "../../services/user/create";
 
 interface IUserForm {
   [key: string]: string;
@@ -39,14 +40,24 @@ export default function ScreenRegistration() {
     },
   ];
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const confirm = window.confirm("Deseja realmente salvar?");
     if (!confirm) return;
-    window.alert(
-      "Ops! Parece que algo deu errado. Por favor, tente novamente."
-    );
+
+    const { resStatus, nickname } = await createUser(form);
+
+    if (resStatus !== 201) {
+      window.alert(
+        "Ops! Parece que algo deu errado. Por favor, tente novamente."
+      );
+      return;
+    }
+    
     window.alert("Salvo com sucesso!");
+
+    console.log(nickname);
+
     setForm({
       nickname: "",
       email: "",
@@ -61,6 +72,7 @@ export default function ScreenRegistration() {
 
   return (
     <div>
+      <h2>Registre-se</h2>
       <form onSubmit={(e) => handleSubmit(e)}>
         {inputsFields.map(({ type, label, id }) => (
           <Fragment key={id}>

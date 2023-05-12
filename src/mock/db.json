@@ -1,3 +1,11 @@
 {
-  "goal": []
+  "goal": [],
+  "user": [
+    {
+      "nickname": "TESTE",
+      "email": "aaa@aaa",
+      "password": "123121212",
+      "id": 1
+    }
+  ]
 }
