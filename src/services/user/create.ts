@@ -13,5 +13,6 @@ export default async function createUser(form: IForm) {
 
   const { nickname } = await res.json();
 
+
   return { resStatus, nickname };
 }

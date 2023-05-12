@@ -1,9 +1,15 @@
 import { Navigate } from "react-router";
+import Header from "./Header";
 
 export default function ScreenHome() {
-  const user = null;
+  const nickname = localStorage.getItem("nickname");
 
-  if (!user) return <Navigate to="/login" />;
+  if (!nickname) return <Navigate to="/login" />;
 
-  return <div>Home</div>;
+  return (
+    <div>
+      Home
+      <Header />
+    </div>
+  );
 }
