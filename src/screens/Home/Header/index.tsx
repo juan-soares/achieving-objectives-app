@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 
 export default function Header() {
   const navigate = useNavigate();
+  const nickname = localStorage.getItem("nickname");
 
   function logout() {
     const confirm = window.confirm("Deseja realmente sair?");
@@ -14,6 +15,7 @@ export default function Header() {
 
   return (
     <nav>
+      <label>{nickname}</label>
       <button onClick={logout}>Sair</button>
     </nav>
   );
