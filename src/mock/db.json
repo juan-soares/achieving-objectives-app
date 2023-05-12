@@ -4,8 +4,32 @@
     {
       "nickname": "TESTE",
       "email": "aaa@aaa",
-      "password": "123121212",
+      "password": "123456",
       "id": 1
+    },
+    {
+      "nickname": "aaa",
+      "email": "sss@asd",
+      "password": "aaaassss",
+      "id": 2
+    },
+    {
+      "nickname": "AAAA",
+      "email": "EEE@AAA",
+      "password": "DSDAASAS",
+      "id": 3
+    },
+    {
+      "nickname": "DSASA",
+      "email": "AAA@AAA",
+      "password": "321AASA",
+      "id": 4
+    },
+    {
+      "nickname": "AAAAAAS",
+      "email": "AAAAAAAA@AAAA",
+      "password": "AAAAAASASA",
+      "id": 5
     }
   ]
 }
