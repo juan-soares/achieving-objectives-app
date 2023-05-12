@@ -24,6 +24,7 @@ export default function ScreenLogin() {
       return;
     } else {
       window.alert(`Olá, ${nickname}.`);
+      localStorage.setItem("nickname", nickname);
       navigate("/");
     }
   }

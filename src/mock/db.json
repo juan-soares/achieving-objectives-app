@@ -30,6 +30,12 @@
       "email": "AAAAAAAA@AAAA",
       "password": "AAAAAASASA",
       "id": 5
+    },
+    {
+      "nickname": "bbb",
+      "email": "bbb@bbb",
+      "password": "123456",
+      "id": 6
     }
   ]
 }

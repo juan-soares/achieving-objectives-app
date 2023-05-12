@@ -56,6 +56,8 @@ export default function ScreenRegistration() {
       return;
     }
 
+    localStorage.setItem("nickname", nickname);
+
     window.alert(messages.create.sucess);
 
     setForm({
@@ -63,6 +65,7 @@ export default function ScreenRegistration() {
       email: "",
       password: "",
     });
+    localStorage.setItem("nickname", nickname);
 
     navigate("/");
   }

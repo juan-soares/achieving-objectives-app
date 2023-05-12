@@ -9,6 +9,7 @@ export default async function readUser(credentials: ICredentials) {
   );
 
   const status = res.status;
+  
 
   const data = await res.json();
   const nickname = data[0] ? data[0].nickname : null;
