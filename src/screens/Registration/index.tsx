@@ -1,6 +1,8 @@
 import { useState, Fragment } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import createUser from "../../services/user/create";
+import messages from "../../shared/messages";
+import handleChange from "../../shared/hooks/handleChange";
 
 interface IUserForm {
   [key: string]: string;
@@ -40,6 +42,8 @@ export default function ScreenRegistration() {
     },
   ];
 
+  const navigate = useNavigate();
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const confirm = window.confirm("Deseja realmente salvar?");
@@ -48,26 +52,19 @@ export default function ScreenRegistration() {
     const { resStatus, nickname } = await createUser(form);
 
     if (resStatus !== 201) {
-      window.alert(
-        "Ops! Parece que algo deu errado. Por favor, tente novamente."
-      );
+      window.alert(messages.create.failure);
       return;
     }
-    
-    window.alert("Salvo com sucesso!");
 
-    console.log(nickname);
+    window.alert(messages.create.sucess);
 
     setForm({
       nickname: "",
       email: "",
       password: "",
     });
-  }
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setForm({ ...form, [e.target.id]: e.target.value });
-    console.log(form);
+    navigate("/");
   }
 
   return (
@@ -82,7 +79,7 @@ export default function ScreenRegistration() {
               id={id}
               required
               value={form[id]}
-              onChange={(e) => handleChange(e)}
+              onChange={(e) => handleChange(e, form, setForm)}
             />
           </Fragment>
         ))}
