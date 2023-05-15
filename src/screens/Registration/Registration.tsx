@@ -1,23 +1,11 @@
 import { useState, Fragment } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { IUserForm, IUserFormInputs } from "./interfaces/user";
 import createUser from "../../services/user/create";
 import messages from "../../shared/messages";
 import handleChange from "../../shared/hooks/handleChange";
 
-interface IUserForm {
-  [key: string]: string;
-  nickname: string;
-  email: string;
-  password: string;
-}
-
-interface IUserFormInputs {
-  type: string;
-  label: string;
-  id: string;
-}
-
-export default function ScreenRegistration() {
+export function ScreenRegistration() {
   const [form, setForm] = useState<IUserForm>({
     nickname: "",
     email: "",

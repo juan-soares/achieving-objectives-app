@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 
-export default function Header() {
+export function Header() {
   const navigate = useNavigate();
   const nickname = localStorage.getItem("nickname");
 

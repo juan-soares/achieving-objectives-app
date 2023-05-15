@@ -4,7 +4,7 @@ import readUser from "../../services/user/read";
 import handleChange from "../../shared/hooks/handleChange";
 import messages from "../../shared/messages";
 
-export default function ScreenLogin() {
+export function ScreenLogin() {
   const [form, setForm] = useState({
     email: "",
     password: "",

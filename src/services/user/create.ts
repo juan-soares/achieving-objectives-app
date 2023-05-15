@@ -1,6 +1,4 @@
-interface IForm {
-  [key: string]: string;
-}
+import { IForm } from "./interface";
 
 export default async function createUser(form: IForm) {
   const res = await fetch(`${process.env.REACT_APP_API}/user`, {

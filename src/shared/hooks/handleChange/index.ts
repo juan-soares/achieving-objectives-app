@@ -1,11 +1,9 @@
-interface IPropsState {
-  [key: string]: string;
-}
+import { IPropsState } from "./interface";
 
 export default function handleChange(
   e: React.ChangeEvent<HTMLInputElement>,
   state: IPropsState,
-  setState
+  setState: React.Dispatch<React.SetStateAction<any>>
 ) {
   setState({ ...state, [e.target.id]: e.target.value });
   console.log(state);

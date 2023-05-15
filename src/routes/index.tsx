@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-import ScreenError from "../screens/Error";
-import ScreenHome from "../screens/Home";
-import ScreenLogin from "../screens/Login";
-import ScreenRegistration from "../screens/Registration";
+import { ScreenError } from "../screens/Error";
+import { ScreenHome } from "../screens/Home";
+import { ScreenLogin } from "../screens/Login";
+import { ScreenRegistration } from "../screens/Registration";
 
 const router = createBrowserRouter([
   {
