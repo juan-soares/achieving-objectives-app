@@ -22,11 +22,11 @@ export function ScreenLogin() {
     if (!nickname) {
       window.alert(messages.read.failure);
       return;
-    } else {
-      window.alert(`Olá, ${nickname}.`);
-      localStorage.setItem("nickname", nickname);
-      navigate("/");
     }
+
+    window.alert(`Olá, ${nickname}.`);
+    localStorage.setItem("nickname", nickname);
+    navigate("/");
   }
 
   return (

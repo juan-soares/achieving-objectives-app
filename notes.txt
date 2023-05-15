@@ -4,3 +4,10 @@ FETCH POST
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({campo: valor})
 }
+
+
+Padrao de Importação Barrels
+https://dev.to/luispa/how-to-create-barrels-in-typescript-or-javascript-59ma
+
+Convencao de Commits
+https://www.conventionalcommits.org/en/v1.0.0/#summary

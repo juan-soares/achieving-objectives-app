@@ -1,7 +1,8 @@
 import { Navigate } from "react-router";
 import { Header } from "./Header";
+import { Sidebar } from "./Siderbar";
 
-export  function ScreenHome() {
+export function ScreenHome() {
   const nickname = localStorage.getItem("nickname");
 
   if (!nickname) return <Navigate to="/login" />;
@@ -10,6 +11,7 @@ export  function ScreenHome() {
     <div>
       Home
       <Header />
+      <Sidebar />
     </div>
   );
 }
