@@ -1,3 +1,3 @@
 export interface IPropsState {
-  [key: string]: string;
+  [key: string]: string | number;
 }

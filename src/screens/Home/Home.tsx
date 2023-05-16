@@ -1,6 +1,7 @@
 import { Navigate } from "react-router";
 import { Header } from "./Header";
 import { Sidebar } from "./Siderbar";
+import { Outlet } from "react-router-dom";
 
 export function ScreenHome() {
   const nickname = localStorage.getItem("nickname");
@@ -12,6 +13,7 @@ export function ScreenHome() {
       Home
       <Header />
       <Sidebar />
+      <Outlet />
     </div>
   );
 }

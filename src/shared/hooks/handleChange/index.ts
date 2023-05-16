@@ -1,7 +1,9 @@
 import { IPropsState } from "./interface";
 
 export default function handleChange(
-  e: React.ChangeEvent<HTMLInputElement>,
+  e:
+    | React.ChangeEvent<HTMLInputElement>
+    | React.ChangeEvent<HTMLTextAreaElement>,
   state: IPropsState,
   setState: React.Dispatch<React.SetStateAction<any>>
 ) {
