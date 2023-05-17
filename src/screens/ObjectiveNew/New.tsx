@@ -1,70 +1,77 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { IForm } from "./interfaces";
-import createObjective from "../../../services/objective/create";
-import handleChange from "../../../shared/hooks/handleChange";
-import messages from "../../../shared/messages";
+import createObjective from "../../services/objective/create";
+import { IObjective } from "../../shared/interfaces";
+import messages from "../../shared/messages";
 
 export function ScreenObjectiveNew() {
-  const navigate = useNavigate();
-  const [form, setForm] = useState<IForm>({
+  const [form, setForm] = useState<IObjective>({
     title: "",
-    goal: 0,
+    goal: 0.0,
     description: "",
+    incomes: [],
   });
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const confirm = window.confirm("Deseja realmente salvar?");
     if (!confirm) return;
+
+    setIsLoading(true);
+
     const id = await createObjective(form);
 
     if (!id) {
       window.alert(messages.create.failure);
+      setIsLoading(false);
       return;
     }
-
     window.alert(messages.create.sucess);
-
     navigate(`/objective/${id}`);
   };
 
   return (
     <div>
-      <h2>Adicionar Objetivo</h2>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <h2>Adicionar Meta</h2>
+
+      <form onSubmit={handleSubmit}>
         <label htmlFor="title">Título</label>
         <input
           type="text"
-          required
           id="title"
+          required
           value={form.title}
-          onChange={(e) => handleChange(e, form, setForm)}
+          onChange={(e) => setForm({ ...form, title: e.target.value })}
         />
-
-        <label htmlFor="goal">Meta R$</label>
+        <label htmlFor="goal">Meta R$ </label>
         <input
           type="number"
-          required
           id="goal"
+          required
+          min="0"
           value={form.goal}
-          onChange={(e) => {
+          onChange={(e) =>
             setForm({
               ...form,
               goal: e.target.value === "" ? 0 : parseFloat(e.target.value),
-            });
-          }}
+            })
+          }
         />
 
         <label htmlFor="description">Descrição</label>
         <textarea
           required
           id="description"
+          placeholder="Deixe aqui uma breve descrição desta meta."
           value={form.description}
-          onChange={(e) => handleChange(e, form, setForm)}
+          onChange={(e) => setForm({ ...form, description: e.target.value })}
         ></textarea>
 
-        <button>Salvar</button>
+        <button disabled={isLoading}>Salvar</button>
       </form>
     </div>
   );

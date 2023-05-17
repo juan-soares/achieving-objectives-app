@@ -1,6 +1,6 @@
-import { IForm } from "../../screens/Objective/New/interfaces";
+import { IObjective } from "../../shared/interfaces";
 
-export default async function createObjective(form: IForm) {
+export default async function createObjective(form: IObjective) {
   const res = await fetch(`${process.env.REACT_APP_API}/objective`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

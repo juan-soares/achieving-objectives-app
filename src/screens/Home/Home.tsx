@@ -1,6 +1,6 @@
 import { Navigate } from "react-router";
 import { Header } from "./Header";
-import { Sidebar } from "./Siderbar";
+import { Sidebar } from "./Sidebar";
 import { Outlet } from "react-router-dom";
 
 export function ScreenHome() {

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import readObjectives from "../../../services/objective/readObjectives";
+import { IObjective } from "../../../shared/interfaces";
+import lisObjectives from "../../../services/objective/list";
 import handleChange from "../../../shared/hooks/handleChange";
-import { IObjective } from "./interfaces";
 
 export function Sidebar() {
   const [isLoading, setIsLoading] = useState(true);
@@ -11,7 +11,7 @@ export function Sidebar() {
 
   useEffect(() => {
     async function getData() {
-      const resObjectivesList = await readObjectives();
+      const resObjectivesList = await lisObjectives();
       setObjectivesList(resObjectivesList);
       setIsLoading(false);
     }
