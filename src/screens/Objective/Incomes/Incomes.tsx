@@ -22,7 +22,7 @@ export function Incomes({ objective }: IProps) {
           setIncomesList={setIncomesList}
         />
       ) : (
-        <IncomesList />
+        <IncomesList incomesList={incomesList}/>
       )}
     </>
   );

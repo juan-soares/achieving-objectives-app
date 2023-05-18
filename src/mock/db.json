@@ -63,6 +63,13 @@
           "purchaseDate": "2023-05-17",
           "expirationDate": "2023-05-18",
           "taxes": 1
+        },
+        {
+          "title": "333",
+          "profitability": 13,
+          "purchaseDate": "2023-05-21",
+          "expirationDate": "2023-05-22",
+          "taxes": 15
         }
       ],
       "id": 3

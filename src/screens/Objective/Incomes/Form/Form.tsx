@@ -39,9 +39,7 @@ export function IncomesForm({
     if (res.status === 200) {
       const updatedObjective = await res.json();
       const { incomes } = updatedObjective;
-
       setIncomesList(incomes);
-
       window.alert(messages.update.sucess);
       setShowForm(false);
     } else {
