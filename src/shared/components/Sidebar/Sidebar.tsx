@@ -40,6 +40,7 @@ export function Sidebar() {
             <ul>
               {objectivesList
                 .filter((obj) => obj.title.includes(searchInput.value))
+                .sort((a, b) => a.title.localeCompare(b.title))
                 .map(({ id, title }) => (
                   <li key={id}>
                     <Link to={`/objective/${id}`}>{title}</Link>

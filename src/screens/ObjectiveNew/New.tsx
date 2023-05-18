@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import createObjective from "../../services/objective/create";
+import { Header } from "../../shared/components/Header";
+import { Sidebar } from "../../shared/components/Sidebar";
 import { IObjective } from "../../shared/interfaces";
 import messages from "../../shared/messages";
 
@@ -36,6 +38,9 @@ export function ScreenObjectiveNew() {
 
   return (
     <div>
+      <Header />
+      <Sidebar />
+
       <h2>Adicionar Meta</h2>
 
       <form onSubmit={handleSubmit}>

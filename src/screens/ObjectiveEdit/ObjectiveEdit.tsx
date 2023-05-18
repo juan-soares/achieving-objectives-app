@@ -4,6 +4,8 @@ import updateObjective from "../../services/objective/update";
 import readObjective from "../../services/objective/read";
 import { IObjective } from "../../shared/interfaces";
 import messages from "../../shared/messages";
+import { Header } from "../../shared/components/Header";
+import { Sidebar } from "../../shared/components/Sidebar";
 
 export function ScreenObjectiveEdit() {
   const [isLoading, setIsLoading] = useState(false);
@@ -46,6 +48,9 @@ export function ScreenObjectiveEdit() {
 
   return (
     <div>
+      <Header />
+      <Sidebar />
+
       <h2>Alterar Meta</h2>
 
       {isLoading && <span>Carregando...</span>}

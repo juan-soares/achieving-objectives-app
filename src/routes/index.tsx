@@ -12,20 +12,18 @@ const router = createBrowserRouter([
     path: "",
     errorElement: <ScreenError />,
     element: <ScreenHome />,
-    children: [
-      {
-        path: "/objective/new",
-        element: <ScreenObjectiveNew />,
-      },
-      {
-        path: "/objective/:objectiveId",
-        element: <ScreenObjective />,
-      },
-      {
-        path: "/objective/:objectiveId/edit",
-        element: <ScreenObjectiveEdit />,
-      },
-    ],
+  },
+  {
+    path: "/objective/new",
+    element: <ScreenObjectiveNew />,
+  },
+  {
+    path: "/objective/:objectiveId",
+    element: <ScreenObjective />,
+  },
+  {
+    path: "/objective/:objectiveId/edit",
+    element: <ScreenObjectiveEdit />,
   },
   {
     path: "/login",

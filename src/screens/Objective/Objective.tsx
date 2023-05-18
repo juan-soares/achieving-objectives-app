@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import readObjective from "../../services/objective/read";
+import { Header } from "../../shared/components/Header";
+import { Sidebar } from "../../shared/components/Sidebar";
 import { IObjective } from "../../shared/interfaces";
 import messages from "../../shared/messages";
 import { ButtonDelete } from "./ButtonDelete/ButtonDelete";
+import { Incomes } from "./Incomes";
 
 export function ScreenObjective() {
   const [isLoading, setIsLoading] = useState(true);
@@ -30,6 +33,8 @@ export function ScreenObjective() {
     const { id, title, goal, description } = objective;
     return (
       <div>
+        <Header />
+        <Sidebar />
         <h2>{title}</h2>
 
         <label>Meta: </label>
@@ -44,6 +49,8 @@ export function ScreenObjective() {
           <button>ALT</button>
         </Link>
         <ButtonDelete id={id} />
+
+        <Incomes objective={objective}/>
       </div>
     );
   }
