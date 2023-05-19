@@ -5,8 +5,14 @@ FETCH POST
     body: JSON.stringify({campo: valor})
 }
 
+Organizar string de data em ordem decrescente
+array.sort((a, b) => Date.parse(b.stringData) - Date.parse(a.stringData))
+
 Converter Number para Moeda Real
 numero.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
+
+Converter string de data em formato americano (yyyy-mm-dd) para formato brasileiro (dd-mm-yyyy)
+strindData.split('-').reverse().join('/')
 
 Calcular diferença de meses entre duas datas, que estão em formato string
 (Date.parse(dataMaior) - Date.parse(dataMenor)) / 2628000000

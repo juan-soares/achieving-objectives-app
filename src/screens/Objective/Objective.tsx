@@ -12,6 +12,7 @@ import { Incomes } from "./Incomes";
 export function ScreenObjective() {
   const [isLoading, setIsLoading] = useState(true);
   const [objective, setObjective] = useState<IObjective>();
+  const [netAmount, setNetAmount] = useState<number>(0);
 
   const { objectiveId } = useParams();
 
@@ -45,7 +46,10 @@ export function ScreenObjective() {
 
         <label>Valor acumulado: </label>
         <span>
-          {goal.toLocaleString("pt-br", { style: "currency", currency: "BRL" })}
+          {netAmount.toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+          })}
         </span>
 
         <p>{description}</p>
@@ -55,7 +59,7 @@ export function ScreenObjective() {
         </Link>
         <ButtonDelete id={id} />
 
-        <Incomes objective={objective} />
+        <Incomes objective={objective}  setNetAmount={setNetAmount}/>
       </div>
     );
   }

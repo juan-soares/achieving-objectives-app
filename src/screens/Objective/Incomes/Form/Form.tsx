@@ -1,4 +1,5 @@
 import { useState } from "react";
+import createIncome from "../../../../services/income/create";
 import { IObjective } from "../../../../shared/interfaces";
 import { IIncome } from "../../../../shared/interfaces/income.interface";
 import messages from "../../../../shared/messages";
@@ -28,21 +29,9 @@ export function IncomesForm({
     const confirm = window.confirm("Deseja realmente salvar?");
     if (!confirm) return;
 
-    const res = await fetch(
-      `${process.env.REACT_APP_API}/objective/${objective.id}`,
-      {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...objective,
-          incomes: [...objective.incomes, form],
-        }),
-      }
-    );
+    const { status, incomes } = await createIncome(objective, form);
 
-    if (res.status === 200) {
-      const updatedObjective = await res.json();
-      const { incomes } = updatedObjective;
+    if (status === 200) {
       setIncomesList(incomes);
       window.alert(messages.update.sucess);
       setShowForm(false);

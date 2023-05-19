@@ -58,6 +58,22 @@
           "purchaseDate": "2021-01-01",
           "expirationDate": "2023-01-01",
           "taxes": 15
+        },
+        {
+          "title": "cdb1",
+          "profitability": 15,
+          "purchaseAmount": 1000,
+          "purchaseDate": "2022-03-01",
+          "expirationDate": "2022-11-01",
+          "taxes": 15
+        },
+        {
+          "title": "CDB3",
+          "profitability": 7,
+          "purchaseAmount": 10000,
+          "purchaseDate": "2022-01-01",
+          "expirationDate": "2023-01-01",
+          "taxes": 15
         }
       ],
       "id": 1

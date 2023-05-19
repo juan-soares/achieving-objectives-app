@@ -6,9 +6,10 @@ import { IncomesList } from "./List";
 
 interface IProps {
   objective: IObjective;
+  setNetAmount: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export function Incomes({ objective }: IProps) {
+export function Incomes({ objective, setNetAmount }: IProps) {
   const [showForm, setShowForm] = useState<boolean>(false);
   const [incomesList, setIncomesList] = useState<IIncome[]>(objective.incomes);
 
@@ -22,7 +23,7 @@ export function Incomes({ objective }: IProps) {
           setIncomesList={setIncomesList}
         />
       ) : (
-        <IncomesList incomesList={incomesList}/>
+        <IncomesList incomesList={incomesList} setNetAmount={setNetAmount} />
       )}
     </>
   );
