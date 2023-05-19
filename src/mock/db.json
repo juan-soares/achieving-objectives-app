@@ -39,44 +39,18 @@
   ],
   "objective": [
     {
-      "title": "Casa",
-      "goal": 20000,
-      "description": "Comprar casa.",
-      "incomes": [
-        {
-          "title": "cdb1",
-          "profitability": 7,
-          "purchaseAmount": 1400,
-          "purchaseDate": "2021-01-01",
-          "expirationDate": "2023-01-01",
-          "taxes": 15
-        },
-        {
-          "title": "CDB2",
-          "profitability": 7,
-          "purchaseAmount": 14000,
-          "purchaseDate": "2021-01-01",
-          "expirationDate": "2023-01-01",
-          "taxes": 15
-        },
-        {
-          "title": "cdb1",
-          "profitability": 15,
-          "purchaseAmount": 1000,
-          "purchaseDate": "2022-03-01",
-          "expirationDate": "2022-11-01",
-          "taxes": 15
-        },
-        {
-          "title": "CDB3",
-          "profitability": 7,
-          "purchaseAmount": 10000,
-          "purchaseDate": "2022-01-01",
-          "expirationDate": "2023-01-01",
-          "taxes": 15
-        }
-      ],
-      "id": 1
+      "title": "Carro",
+      "goal": 10000,
+      "description": "comprar carro",
+      "incomes": [],
+      "id": 2
+    },
+    {
+      "title": "Pokémon",
+      "goal": 100000,
+      "description": "quero um pokémon",
+      "incomes": [],
+      "id": 3
     }
   ]
 }

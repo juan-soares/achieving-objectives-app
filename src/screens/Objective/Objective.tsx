@@ -32,6 +32,8 @@ export function ScreenObjective() {
     return <span>{messages.read.failure}</span>;
   } else {
     const { id, title, goal, description } = objective;
+    const achievement = Math.round((netAmount * 100) / goal);
+
     return (
       <div>
         <Header />
@@ -41,7 +43,6 @@ export function ScreenObjective() {
         <label>Meta: </label>
         <span>
           {goal.toLocaleString("pt-br", { style: "currency", currency: "BRL" })}{" "}
-          | 1% Completo
         </span>
 
         <label>Valor acumulado: </label>
@@ -51,6 +52,10 @@ export function ScreenObjective() {
             currency: "BRL",
           })}
         </span>
+        <span>
+          {achievement}%{" "}
+          {achievement > 100 ? "Meta alcançada!" : "Meta a alcançar."}
+        </span>
 
         <p>{description}</p>
 
@@ -59,7 +64,7 @@ export function ScreenObjective() {
         </Link>
         <ButtonDelete id={id} />
 
-        <Incomes objective={objective}  setNetAmount={setNetAmount}/>
+        <Incomes objective={objective} setNetAmount={setNetAmount} />
       </div>
     );
   }

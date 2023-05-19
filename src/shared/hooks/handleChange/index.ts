@@ -8,5 +8,4 @@ export default function handleChange(
   setState: React.Dispatch<React.SetStateAction<any>>
 ) {
   setState({ ...state, [e.target.id]: e.target.value });
-  console.log(state);
 }

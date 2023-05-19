@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import createIncome from "../../../../services/income/create";
 import { IObjective } from "../../../../shared/interfaces";
 import { IIncome } from "../../../../shared/interfaces/income.interface";
@@ -23,6 +23,22 @@ export function IncomesForm({
     expirationDate: "",
     taxes: 0,
   });
+
+  useEffect(() => {
+    const timeBetweenDates =
+      (Date.parse(form.expirationDate) - Date.parse(form.purchaseDate)) /
+      86400000;
+
+    if (timeBetweenDates > 720) {
+      setForm({ ...form, taxes: 15 });
+    } else if (timeBetweenDates < 721 && timeBetweenDates > 360) {
+      setForm({ ...form, taxes: 17.5 });
+    } else if (timeBetweenDates < 361 && timeBetweenDates > 180) {
+      setForm({ ...form, taxes: 20 });
+    } else {
+      setForm({ ...form, taxes: 22.5 });
+    }
+  }, [form.purchaseDate, form.expirationDate]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -50,7 +66,9 @@ export function IncomesForm({
         id="title"
         required
         value={form.title}
-        onChange={(e) => setForm({ ...form, title: e.target.value })}
+        onChange={(e) =>
+          setForm({ ...form, title: e.target.value.toUpperCase() })
+        }
       />
 
       <label htmlFor="profitability">Rendimento a.a</label>
@@ -93,16 +111,7 @@ export function IncomesForm({
         value={form.expirationDate}
         onChange={(e) => setForm({ ...form, expirationDate: e.target.value })}
       />
-      <label htmlFor="taxes">IR %</label>
-      <input
-        type="number"
-        id="taxes"
-        min="0"
-        required
-        value={form.taxes}
-        onChange={(e) => setForm({ ...form, taxes: Number(e.target.value) })}
-      />
-
+      <span>IR {form.taxes}%</span>
       <button>Salvar</button>
     </form>
   );
