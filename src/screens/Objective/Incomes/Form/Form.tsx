@@ -17,6 +17,7 @@ export function IncomesForm({
   const [form, setForm] = useState<IIncome>({
     title: "",
     profitability: 0,
+    purchaseAmount: 0.0,
     purchaseDate: "",
     expirationDate: "",
     taxes: 0,
@@ -27,14 +28,17 @@ export function IncomesForm({
     const confirm = window.confirm("Deseja realmente salvar?");
     if (!confirm) return;
 
-    const res = await fetch(`${process.env.REACT_APP_API}/objective/3`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        ...objective,
-        incomes: [...objective.incomes, form],
-      }),
-    });
+    const res = await fetch(
+      `${process.env.REACT_APP_API}/objective/${objective.id}`,
+      {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...objective,
+          incomes: [...objective.incomes, form],
+        }),
+      }
+    );
 
     if (res.status === 200) {
       const updatedObjective = await res.json();
@@ -79,6 +83,17 @@ export function IncomesForm({
         required
         value={form.purchaseDate}
         onChange={(e) => setForm({ ...form, purchaseDate: e.target.value })}
+      />
+
+      <label htmlFor="purchaseDate">Valor de Compra R$ </label>
+      <input
+        type="number"
+        id="purchaseAmount"
+        required
+        value={form.purchaseAmount}
+        onChange={(e) =>
+          setForm({ ...form, purchaseAmount: parseFloat(e.target.value) })
+        }
       />
 
       <label htmlFor="expirationDate">Data de Vencimento</label>

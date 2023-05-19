@@ -5,25 +5,102 @@ interface IProps {
 }
 
 export function IncomesList({ incomesList }: IProps) {
+  const calculateEstimatedProfit = (
+    capital: number,
+    profitability: number,
+    expirationDate: string,
+    purchaseDate: string,
+    taxes: number
+  ) => {
+    profitability = profitability / 100;
+    const timeInYears = Math.round(
+      (Date.parse(expirationDate) - Date.parse(purchaseDate)) / 31556926000
+    );
+
+    const estimatedProfit = capital * (1 + profitability) ** timeInYears;
+
+    const netAmount = estimatedProfit - estimatedProfit * (taxes / 100);
+
+    return netAmount;
+  };
+
+  let netTotalAmount = 0;
+  incomesList.forEach(
+    ({
+      purchaseAmount,
+      profitability,
+      expirationDate,
+      purchaseDate,
+      taxes,
+    }) => {
+      netTotalAmount =
+        netTotalAmount +
+        calculateEstimatedProfit(
+          purchaseAmount,
+          profitability,
+          expirationDate,
+          purchaseDate,
+          taxes
+        );
+    }
+  );
+
   return (
     <div>
       <h3>Rendimentos</h3>
 
+      {!incomesList.length && <span>Sem itens na lista.</span>}
+
       {incomesList.map(
-        ({ title, profitability, purchaseDate, taxes, expirationDate }) => (
+        ({
+          title,
+          profitability,
+          purchaseDate,
+          purchaseAmount,
+          taxes,
+          expirationDate,
+        }) => (
           <li key={title}>
             <span>{title}</span>
             <span>{profitability}% a.a</span>
-            <label>Data de Compra: </label>
+            <label>Data de compra: </label>
             <span>{purchaseDate}</span>
+            <label>Valor de compra: </label>
+            <span>
+              {purchaseAmount.toLocaleString("pt-br", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </span>
 
             <label>IR </label>
             <span>{taxes} %</span>
 
-            <label>Data de Vencimento: </label>
+            <label>Data de vencimento: </label>
             <span>{expirationDate}</span>
 
-            <label></label>
+            <label>Tempo de investimento: </label>
+            <span>
+              {Math.round(
+                (Date.parse(expirationDate) - Date.parse(purchaseDate)) /
+                  2628000000
+              )}{" "}
+              meses
+            </span>
+
+            <label>Valor liquido estimado de retorno:</label>
+            <span>
+              {calculateEstimatedProfit(
+                purchaseAmount,
+                profitability,
+                expirationDate,
+                purchaseDate,
+                taxes
+              ).toLocaleString("pt-br", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </span>
           </li>
         )
       )}

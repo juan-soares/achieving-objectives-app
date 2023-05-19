@@ -38,10 +38,15 @@ export function ScreenObjective() {
         <h2>{title}</h2>
 
         <label>Meta: </label>
-        <span>R$ {goal} | % Completo</span>
+        <span>
+          {goal.toLocaleString("pt-br", { style: "currency", currency: "BRL" })}{" "}
+          | 1% Completo
+        </span>
 
         <label>Valor acumulado: </label>
-        <span>R$ </span>
+        <span>
+          {goal.toLocaleString("pt-br", { style: "currency", currency: "BRL" })}
+        </span>
 
         <p>{description}</p>
 
@@ -50,7 +55,7 @@ export function ScreenObjective() {
         </Link>
         <ButtonDelete id={id} />
 
-        <Incomes objective={objective}/>
+        <Incomes objective={objective} />
       </div>
     );
   }

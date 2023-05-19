@@ -6,9 +6,10 @@ FETCH POST
 }
 
 Converter Number para Moeda Real
-numero.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+numero.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
 
-
+Calcular diferença de meses entre duas datas, que estão em formato string
+(Date.parse(dataMaior) - Date.parse(dataMenor)) / 2628000000
 
 Padrao de Importação Barrels
 https://dev.to/luispa/how-to-create-barrels-in-typescript-or-javascript-59ma
