@@ -9,7 +9,6 @@ export function ScreenHome() {
 
   return (
     <div>
-      Home
       <Header />
       <Sidebar />
     </div>

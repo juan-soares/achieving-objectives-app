@@ -44,13 +44,6 @@
       "description": "comprar carro",
       "incomes": [],
       "id": 2
-    },
-    {
-      "title": "Pokémon",
-      "goal": 100000,
-      "description": "quero um pokémon",
-      "incomes": [],
-      "id": 3
     }
   ]
 }

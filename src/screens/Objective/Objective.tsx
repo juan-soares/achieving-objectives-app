@@ -52,9 +52,9 @@ export function ScreenObjective() {
             currency: "BRL",
           })}
         </span>
+
         <span>
-          {achievement}%{" "}
-          {achievement > 100 ? "Meta alcançada!" : "Meta a alcançar."}
+          {achievement}%{" concluído."}
         </span>
 
         <p>{description}</p>
