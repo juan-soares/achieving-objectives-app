@@ -60,11 +60,16 @@ const StyledScreenRegistration = styled.div`
         font-size: 12pt;
         margin-top: 50px;
         padding: 10px;
-        color: white;
+          }
+      
+      button:enabled{
+          color: white;
         background-color: ${(props) => props.theme.colorPink};
+    border-color: ${(props) => props.theme.colorPink};
+  
       }
       
-      button:hover{
+      button:enabled:hover{
         cursor: pointer;
         background-color: ${(props) => props.theme.colorGreen};
         border-color: ${(props) => props.theme.colorGreen};
