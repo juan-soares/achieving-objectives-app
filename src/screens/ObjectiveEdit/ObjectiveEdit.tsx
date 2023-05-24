@@ -14,6 +14,7 @@ export function ScreenObjectiveEdit() {
     goal: 0.0,
     description: "",
     incomes: [],
+   
   });
 
   const { objectiveId } = useParams();

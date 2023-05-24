@@ -35,14 +35,29 @@
       "email": "bbb@bbb",
       "password": "123456",
       "id": 6
+    },
+    {
+      "nickname": "bbb@bbb",
+      "email": "bbb@bbb.com",
+      "password": "123456",
+      "id": 7
     }
   ],
   "objective": [
     {
-      "title": "Carro",
-      "goal": 10000,
-      "description": "comprar carro",
+      "title": "TESTE1",
+      "goal": 1,
+      "description": "O",
       "incomes": [],
+      "user": null,
+      "id": 1
+    },
+    {
+      "title": "1",
+      "goal": 1,
+      "description": "\nsd\n\n",
+      "incomes": [],
+      "user": "bbb",
       "id": 2
     }
   ]

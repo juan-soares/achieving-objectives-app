@@ -12,6 +12,7 @@ export function ScreenObjectiveNew() {
     goal: 0.0,
     description: "",
     incomes: [],
+    user: localStorage.getItem("nickname"),
   });
 
   const [isLoading, setIsLoading] = useState(false);
