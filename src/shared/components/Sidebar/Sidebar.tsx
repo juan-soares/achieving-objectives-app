@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { IObjective } from "../../../shared/interfaces";
 import lisObjectives from "../../../services/objective/list";
 import handleChange from "../../../shared/hooks/handleChange";
+import StyledSidebar from "./Sidebar.styled";
 
 export function Sidebar() {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,17 +20,19 @@ export function Sidebar() {
   }, []);
 
   return (
-    <div>
-      <input
-        type="search"
-        id="value"
-        value={searchInput.value}
-        onChange={(e) => handleChange(e, searchInput, setSearchInput)}
-        placeholder="Buscar objetivo..."
-      />
-      <Link to="/objective/new">
-        <button>+</button>
-      </Link>
+    <StyledSidebar>
+      <div className="searchbar">
+        <input
+          type="search"
+          id="value"
+          value={searchInput.value}
+          onChange={(e) => handleChange(e, searchInput, setSearchInput)}
+          placeholder="Buscar objetivo..."
+        />
+        <Link to="/objective/new">
+          <button>+</button>
+        </Link>
+      </div>
 
       {isLoading && <span>Carregando...</span>}
       {!isLoading && (
@@ -50,6 +53,6 @@ export function Sidebar() {
           )}
         </nav>
       )}
-    </div>
+    </StyledSidebar>
   );
 }

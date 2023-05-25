@@ -1,6 +1,7 @@
 import { Navigate } from "react-router";
 import { Header } from "../../shared/components/Header";
 import { Sidebar } from "../../shared/components/Sidebar";
+import StyledScreenHome from "./Home.styled";
 
 export function ScreenHome() {
   const nickname = localStorage.getItem("nickname");
@@ -8,9 +9,9 @@ export function ScreenHome() {
   if (!nickname) return <Navigate to="/login" />;
 
   return (
-    <div>
+    <StyledScreenHome>
       <Header />
       <Sidebar />
-    </div>
+    </StyledScreenHome>
   );
 }
