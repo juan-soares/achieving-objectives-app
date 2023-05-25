@@ -52,6 +52,27 @@ const StyledSidebar = styled.aside`
   span {
     font-style: italic;
   }
+
+  nav {
+    ul {
+      list-style-type: none;
+      li {
+        font-size: 15pt;
+        padding: 15px;
+        border-bottom: 1px solid ${(props) => props.theme.coloBlack};
+
+        a {
+          color: ${(props) => props.theme.colorBlack};
+          text-decoration: none;
+          font-weight: bolder;
+
+          :hover {
+            color: ${(props) => props.theme.colorPink};
+          }
+        }
+      }
+    }
+  }
 `;
 
 export default StyledSidebar;

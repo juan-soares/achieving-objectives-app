@@ -65,6 +65,22 @@
       "incomes": [],
       "user": "bbb",
       "id": 2
+    },
+    {
+      "title": "Carro",
+      "goal": 15000,
+      "description": "Comprar carro.",
+      "incomes": [],
+      "user": "teste1",
+      "id": 3
+    },
+    {
+      "title": "Casa",
+      "goal": 150000,
+      "description": "Comprar casa.",
+      "incomes": [],
+      "user": "teste1",
+      "id": 4
     }
   ]
 }

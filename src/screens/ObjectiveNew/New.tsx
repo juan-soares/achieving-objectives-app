@@ -5,6 +5,7 @@ import { Header } from "../../shared/components/Header";
 import { Sidebar } from "../../shared/components/Sidebar";
 import { IObjective } from "../../shared/interfaces";
 import messages from "../../shared/messages";
+import StyledScreenObjectiveNew from "./New.styled";
 
 export function ScreenObjectiveNew() {
   const [form, setForm] = useState<IObjective>({
@@ -38,47 +39,49 @@ export function ScreenObjectiveNew() {
   };
 
   return (
-    <div>
+    <StyledScreenObjectiveNew>
       <Header />
       <Sidebar />
 
-      <h2>Adicionar Meta</h2>
+      <div className="container-content">
+        <h2>Adicionar Meta</h2>
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Título</label>
-        <input
-          type="text"
-          id="title"
-          required
-          value={form.title}
-          onChange={(e) => setForm({ ...form, title: e.target.value })}
-        />
-        <label htmlFor="goal">Meta R$ </label>
-        <input
-          type="number"
-          id="goal"
-          required
-          min="0"
-          value={form.goal}
-          onChange={(e) =>
-            setForm({
-              ...form,
-              goal: e.target.value === "" ? 0 : parseFloat(e.target.value),
-            })
-          }
-        />
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="title">Título</label>
+          <input
+            type="text"
+            id="title"
+            required
+            value={form.title}
+            onChange={(e) => setForm({ ...form, title: e.target.value })}
+          />
+          <label htmlFor="goal">Meta R$ </label>
+          <input
+            type="number"
+            id="goal"
+            required
+            min="0"
+            value={form.goal}
+            onChange={(e) =>
+              setForm({
+                ...form,
+                goal: e.target.value === "" ? 0 : parseFloat(e.target.value),
+              })
+            }
+          />
 
-        <label htmlFor="description">Descrição</label>
-        <textarea
-          required
-          id="description"
-          placeholder="Deixe aqui uma breve descrição desta meta."
-          value={form.description}
-          onChange={(e) => setForm({ ...form, description: e.target.value })}
-        ></textarea>
+          <label htmlFor="description">Descrição</label>
+          <textarea
+            required
+            id="description"
+            placeholder="Deixe aqui uma breve descrição desta meta."
+            value={form.description}
+            onChange={(e) => setForm({ ...form, description: e.target.value })}
+          ></textarea>
 
-        <button disabled={isLoading}>Salvar</button>
-      </form>
-    </div>
+          <button disabled={isLoading}>Salvar</button>
+        </form>
+      </div>
+    </StyledScreenObjectiveNew>
   );
 }
