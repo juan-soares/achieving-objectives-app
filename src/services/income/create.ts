@@ -19,7 +19,7 @@ export default async function createIncome(
 
   const status = res.status;
 
-  const { incomes } = await res.json();
+  const objectiveUpdated = await res.json();
 
-  return { status, incomes };
+  return { status, objectiveUpdated };
 }

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { IObjective } from "../../../shared/interfaces";
-import { IIncome } from "../../../shared/interfaces/income.interface";
 import { IncomesForm } from "./Form";
 import { IncomesList } from "./List";
 
 interface IProps {
   objective: IObjective;
+  setObjective: React.Dispatch<React.SetStateAction<IObjective | undefined>>;
   setNetAmount: React.Dispatch<React.SetStateAction<number>>;
   showForm: boolean;
   setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
@@ -13,23 +13,25 @@ interface IProps {
 
 export function Incomes({
   objective,
+  setObjective,
   setNetAmount,
   showForm,
   setShowForm,
 }: IProps) {
-  const [incomesList, setIncomesList] = useState<IIncome[]>(objective.incomes);
-
   if (showForm) {
     return (
       <IncomesForm
         setShowForm={setShowForm}
         objective={objective}
-        setIncomesList={setIncomesList}
+        setObjective={setObjective}
       />
     );
   } else {
     return (
-      <IncomesList incomesList={incomesList} setNetAmount={setNetAmount} />
+      <IncomesList
+        incomesList={objective.incomes}
+        setNetAmount={setNetAmount}
+      />
     );
   }
 }

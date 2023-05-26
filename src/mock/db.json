@@ -68,7 +68,7 @@
     },
     {
       "title": "Carro",
-      "goal": 15000,
+      "goal": 3000,
       "description": "Comprar carro.",
       "incomes": [
         {

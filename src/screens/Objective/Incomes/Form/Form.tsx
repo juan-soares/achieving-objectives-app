@@ -8,14 +8,10 @@ import StyledIncomesForm from "./Form.styled";
 interface IProps {
   setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
   objective: IObjective;
-  setIncomesList: React.Dispatch<React.SetStateAction<IIncome[]>>;
+  setObjective: React.Dispatch<React.SetStateAction<IObjective | undefined>>;
 }
 
-export function IncomesForm({
-  setShowForm,
-  objective,
-  setIncomesList,
-}: IProps) {
+export function IncomesForm({ setShowForm, objective, setObjective }: IProps) {
   const [form, setForm] = useState<IIncome>({
     title: "",
     profitability: 0,
@@ -46,10 +42,10 @@ export function IncomesForm({
     const confirm = window.confirm("Deseja realmente salvar?");
     if (!confirm) return;
 
-    const { status, incomes } = await createIncome(objective, form);
+    const { status, objectiveUpdated } = await createIncome(objective, form);
 
     if (status === 200) {
-      setIncomesList(incomes);
+      setObjective(objectiveUpdated);
       window.alert(messages.update.sucess);
       setShowForm(false);
     } else {
