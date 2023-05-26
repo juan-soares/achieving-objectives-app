@@ -1,7 +1,4 @@
-interface ICredentials {
-  email: string;
-  password: string;
-}
+import { ICredentials } from "./interface";
 
 export default async function readUser(credentials: ICredentials) {
   const res = await fetch(
@@ -9,7 +6,6 @@ export default async function readUser(credentials: ICredentials) {
   );
 
   const status = res.status;
-  
 
   const data = await res.json();
   const nickname = data[0] ? data[0].nickname : null;

@@ -1,21 +1,4 @@
-interface IMessages {
-  create: {
-    sucess: string;
-    failure: string;
-  };
-  read: {
-    sucess: string;
-    failure: string;
-  };
-  update: {
-    sucess: string;
-    failure: string;
-  };
-  delete: {
-    sucess: string;
-    failure: string;
-  };
-}
+import { IMessages } from "./interface";
 
 const messages: IMessages = {
   create: {
@@ -24,15 +7,17 @@ const messages: IMessages = {
   },
   read: {
     sucess: "",
-    failure: "Ops! Nenhum registro foi encontraro. Por favor, tente novamente.",
+    failure:
+      "Ops! O que procura parece não estar por aqui. Por favor, tente novamente.",
   },
   update: {
-    sucess: "",
-    failure: "",
+    sucess: "Alteração realizada com sucesso!",
+    failure: "Oops! Não foi possível atualizar. Por favor, tente novamente",
   },
   delete: {
-    sucess: "",
-    failure: "",
+    sucess: "Registro removido com sucesso!",
+    failure:
+      "Ops! Algo não se saiu bem ao remover. Por favor, tente novamente.",
   },
 };
 

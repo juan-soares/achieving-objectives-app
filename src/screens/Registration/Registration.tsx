@@ -1,23 +1,12 @@
 import { useState, Fragment } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { IUserForm, IUserFormInputs } from "./interfaces/user";
 import createUser from "../../services/user/create";
 import messages from "../../shared/messages";
 import handleChange from "../../shared/hooks/handleChange";
+import StyledScreenRegistration from "./Registration.styled";
 
-interface IUserForm {
-  [key: string]: string;
-  nickname: string;
-  email: string;
-  password: string;
-}
-
-interface IUserFormInputs {
-  type: string;
-  label: string;
-  id: string;
-}
-
-export default function ScreenRegistration() {
+export function ScreenRegistration() {
   const [form, setForm] = useState<IUserForm>({
     nickname: "",
     email: "",
@@ -27,7 +16,7 @@ export default function ScreenRegistration() {
   const inputsFields: IUserFormInputs[] = [
     {
       type: "text",
-      label: "Nickname",
+      label: "Apelido",
       id: "nickname",
     },
     {
@@ -71,35 +60,37 @@ export default function ScreenRegistration() {
   }
 
   return (
-    <div>
-      <h2>Registre-se</h2>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        {inputsFields.map(({ type, label, id }) => (
-          <Fragment key={id}>
-            <label>{label}</label>
-            <input
-              type={type}
-              id={id}
-              required
-              value={form[id]}
-              onChange={(e) => handleChange(e, form, setForm)}
-            />
-          </Fragment>
-        ))}
-        {form.password !== "" && form.password.length < 6 && (
-          <span>A senha deve conter no mínimo 6 caracteres.</span>
-        )}
-        <button
-          disabled={
-            form.nickname === "" ||
-            form.email === "" ||
-            form.password.length < 6
-          }
-        >
-          Confirmar
-        </button>
-      </form>
-      <Link to="/">Voltar</Link>
-    </div>
+    <StyledScreenRegistration>
+      <div>
+        <h2>Registre-se</h2>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          {inputsFields.map(({ type, label, id }) => (
+            <Fragment key={id}>
+              <label>{label}</label>
+              <input
+                type={type}
+                id={id}
+                required
+                value={form[id]}
+                onChange={(e) => handleChange(e, form, setForm)}
+              />
+            </Fragment>
+          ))}
+          {form.password !== "" && form.password.length < 6 && (
+            <span>* A senha deve conter no mínimo 6 caracteres.</span>
+          )}
+          <button
+            disabled={
+              form.nickname === "" ||
+              form.email === "" ||
+              form.password.length < 6
+            }
+          >
+            Confirmar
+          </button>
+        </form>
+        <Link to="/">Voltar</Link>
+      </div>
+    </StyledScreenRegistration>
   );
 }
