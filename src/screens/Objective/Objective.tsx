@@ -1,4 +1,4 @@
-impor { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import readObjective from "../../services/objective/read";
