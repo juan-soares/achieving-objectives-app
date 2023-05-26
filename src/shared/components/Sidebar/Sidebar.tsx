@@ -34,6 +34,8 @@ export function Sidebar() {
         </Link>
       </div>
 
+      <h3>OBJETIVOS</h3>
+
       {isLoading && <span>Carregando...</span>}
       {!isLoading && (
         <nav>

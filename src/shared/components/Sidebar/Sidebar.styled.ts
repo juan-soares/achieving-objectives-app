@@ -27,18 +27,16 @@ const StyledSidebar = styled.aside`
 
     input {
       font-style: italic;
+
+      @media (max-width: 1000px) {
+        width: 80%;
+        margin-bottom: 10px;
+      }
     }
 
     input,
     button {
       padding: 5px 10px;
-    }
-
-    input {
-      @media (max-width: 1000px) {
-        width: 80%;
-        margin-bottom: 10px;
-      }
     }
 
     button:hover {
@@ -51,6 +49,11 @@ const StyledSidebar = styled.aside`
 
   span {
     font-style: italic;
+  }
+
+  h3 {
+    padding: 15px;
+    font-size: 16pt;
   }
 
   nav {

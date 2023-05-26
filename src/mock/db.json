@@ -70,7 +70,56 @@
       "title": "Carro",
       "goal": 15000,
       "description": "Comprar carro.",
-      "incomes": [],
+      "incomes": [
+        {
+          "title": "EETE",
+          "profitability": 10,
+          "purchaseAmount": 1,
+          "purchaseDate": "2023-05-23",
+          "expirationDate": "2023-05-23",
+          "taxes": 22.5
+        },
+        {
+          "title": "TESTE",
+          "profitability": 1,
+          "purchaseAmount": 10,
+          "purchaseDate": "2023-05-17",
+          "expirationDate": "2023-05-10",
+          "taxes": 22.5
+        },
+        {
+          "title": "CC",
+          "profitability": 14,
+          "purchaseAmount": 15,
+          "purchaseDate": "2023-05-21",
+          "expirationDate": "2023-06-02",
+          "taxes": 22.5
+        },
+        {
+          "title": "TESTEE",
+          "profitability": 1,
+          "purchaseAmount": 16000,
+          "purchaseDate": "2023-05-23",
+          "expirationDate": "2023-05-25",
+          "taxes": 22.5
+        },
+        {
+          "title": "ABC",
+          "profitability": 1,
+          "purchaseAmount": 15000,
+          "purchaseDate": "2023-05-01",
+          "expirationDate": "2023-05-26",
+          "taxes": 22.5
+        },
+        {
+          "title": "CDB",
+          "profitability": 145,
+          "purchaseAmount": 10000,
+          "purchaseDate": "2023-05-16",
+          "expirationDate": "2023-05-26",
+          "taxes": 22.5
+        }
+      ],
       "user": "teste1",
       "id": 3
     },

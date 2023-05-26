@@ -7,24 +7,29 @@ import { IncomesList } from "./List";
 interface IProps {
   objective: IObjective;
   setNetAmount: React.Dispatch<React.SetStateAction<number>>;
+  showForm: boolean;
+  setShowForm: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export function Incomes({ objective, setNetAmount }: IProps) {
-  const [showForm, setShowForm] = useState<boolean>(false);
+export function Incomes({
+  objective,
+  setNetAmount,
+  showForm,
+  setShowForm,
+}: IProps) {
   const [incomesList, setIncomesList] = useState<IIncome[]>(objective.incomes);
 
-  return (
-    <>
-      <button onClick={() => setShowForm(true)}>Adicionar Rendimento</button>
-      {showForm ? (
-        <IncomesForm
-          setShowForm={setShowForm}
-          objective={objective}
-          setIncomesList={setIncomesList}
-        />
-      ) : (
-        <IncomesList incomesList={incomesList} setNetAmount={setNetAmount} />
-      )}
-    </>
-  );
+  if (showForm) {
+    return (
+      <IncomesForm
+        setShowForm={setShowForm}
+        objective={objective}
+        setIncomesList={setIncomesList}
+      />
+    );
+  } else {
+    return (
+      <IncomesList incomesList={incomesList} setNetAmount={setNetAmount} />
+    );
+  }
 }

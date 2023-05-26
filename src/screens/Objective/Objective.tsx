@@ -8,11 +8,13 @@ import { IObjective } from "../../shared/interfaces";
 import messages from "../../shared/messages";
 import { ButtonDelete } from "./ButtonDelete/ButtonDelete";
 import { Incomes } from "./Incomes";
+import StyledScreenObjective from "./Objective.styled";
 
 export function ScreenObjective() {
   const [isLoading, setIsLoading] = useState(true);
   const [objective, setObjective] = useState<IObjective>();
   const [netAmount, setNetAmount] = useState<number>(0);
+  const [showForm, setShowForm] = useState<boolean>(false);
 
   const { objectiveId } = useParams();
 
@@ -35,37 +37,57 @@ export function ScreenObjective() {
     const achievement = Math.round((netAmount * 100) / goal);
 
     return (
-      <div>
+      <StyledScreenObjective>
         <Header />
         <Sidebar />
-        <h2>{title}</h2>
+        <div className="content-container">
+          <h2>{title}</h2>
 
-        <label>Meta: </label>
-        <span>
-          {goal.toLocaleString("pt-br", { style: "currency", currency: "BRL" })}{" "}
-        </span>
+          <div className="buttons-container">
+            <Link to={`/objective/${id}/edit`}>
+              <button>ALT</button>
+            </Link>
+            <ButtonDelete id={id} />
+            <button onClick={() => setShowForm(true)}>
+              Adicionar Investimento
+            </button>
+          </div>
 
-        <label>Valor acumulado: </label>
-        <span>
-          {netAmount.toLocaleString("pt-br", {
-            style: "currency",
-            currency: "BRL",
-          })}
-        </span>
+          <div className="labels-container">
+            <div>
+              <label>Meta: </label>
+              <span>
+                {goal.toLocaleString("pt-br", {
+                  style: "currency",
+                  currency: "BRL",
+                })}{" "}
+              </span>
+            </div>
+            <div>
+              <label>Valor acumulado: </label>
+              <span>
+                {netAmount.toLocaleString("pt-br", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </span>
+            </div>
+            <div>
+              <span>
+                {achievement}%{" concluído."}
+              </span>
+            </div>
+          </div>
+          <p>{description}</p>
 
-        <span>
-          {achievement}%{" concluído."}
-        </span>
-
-        <p>{description}</p>
-
-        <Link to={`/objective/${id}/edit`}>
-          <button>ALT</button>
-        </Link>
-        <ButtonDelete id={id} />
-
-        <Incomes objective={objective} setNetAmount={setNetAmount} />
-      </div>
+          <Incomes
+            objective={objective}
+            setNetAmount={setNetAmount}
+            showForm={showForm}
+            setShowForm={setShowForm}
+          />
+        </div>
+      </StyledScreenObjective>
     );
   }
 }
