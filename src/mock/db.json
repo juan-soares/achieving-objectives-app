@@ -1,0 +1,135 @@
+{
+  "user": [
+    {
+      "nickname": "TESTE",
+      "email": "aaa@aaa",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "nickname": "aaa",
+      "email": "sss@asd",
+      "password": "aaaassss",
+      "id": 2
+    },
+    {
+      "nickname": "AAAA",
+      "email": "EEE@AAA",
+      "password": "DSDAASAS",
+      "id": 3
+    },
+    {
+      "nickname": "DSASA",
+      "email": "AAA@AAA",
+      "password": "321AASA",
+      "id": 4
+    },
+    {
+      "nickname": "AAAAAAS",
+      "email": "AAAAAAAA@AAAA",
+      "password": "AAAAAASASA",
+      "id": 5
+    },
+    {
+      "nickname": "bbb",
+      "email": "bbb@bbb",
+      "password": "123456",
+      "id": 6
+    },
+    {
+      "nickname": "bbb@bbb",
+      "email": "bbb@bbb.com",
+      "password": "123456",
+      "id": 7
+    },
+    {
+      "nickname": "teste1",
+      "email": "testes1@teste",
+      "password": "123456",
+      "id": 8
+    }
+  ],
+  "objective": [
+    {
+      "title": "TESTE1",
+      "goal": 1,
+      "description": "O",
+      "incomes": [],
+      "user": null,
+      "id": 1
+    },
+    {
+      "title": "1",
+      "goal": 1,
+      "description": "\nsd\n\n",
+      "incomes": [],
+      "user": "bbb",
+      "id": 2
+    },
+    {
+      "title": "Carro",
+      "goal": 3000,
+      "description": "Comprar carro.",
+      "incomes": [
+        {
+          "title": "EETE",
+          "profitability": 10,
+          "purchaseAmount": 1,
+          "purchaseDate": "2023-05-23",
+          "expirationDate": "2023-05-23",
+          "taxes": 22.5
+        },
+        {
+          "title": "TESTE",
+          "profitability": 1,
+          "purchaseAmount": 10,
+          "purchaseDate": "2023-05-17",
+          "expirationDate": "2023-05-10",
+          "taxes": 22.5
+        },
+        {
+          "title": "CC",
+          "profitability": 14,
+          "purchaseAmount": 15,
+          "purchaseDate": "2023-05-21",
+          "expirationDate": "2023-06-02",
+          "taxes": 22.5
+        },
+        {
+          "title": "TESTEE",
+          "profitability": 1,
+          "purchaseAmount": 16000,
+          "purchaseDate": "2023-05-23",
+          "expirationDate": "2023-05-25",
+          "taxes": 22.5
+        },
+        {
+          "title": "ABC",
+          "profitability": 1,
+          "purchaseAmount": 15000,
+          "purchaseDate": "2023-05-01",
+          "expirationDate": "2023-05-26",
+          "taxes": 22.5
+        },
+        {
+          "title": "CDB",
+          "profitability": 145,
+          "purchaseAmount": 10000,
+          "purchaseDate": "2023-05-16",
+          "expirationDate": "2023-05-26",
+          "taxes": 22.5
+        }
+      ],
+      "user": "teste1",
+      "id": 3
+    },
+    {
+      "title": "Casa",
+      "goal": 150000,
+      "description": "Comprar casa.",
+      "incomes": [],
+      "user": "teste1",
+      "id": 4
+    }
+  ]
+}
